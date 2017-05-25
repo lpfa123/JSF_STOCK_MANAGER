@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<body>
+		<ui:composition template="templates/default/Layout.xhtml">
+		
+		<!-- butao voltar ao menu anterior -->
+		<ui:define name="button5">
+			<h:form>
+				<h:commandButoon id="button5" value="Voltar" action="ProductMenu" />
+			</h:form>
+		</ui:define>
+		<!--  Conteudo -->
+			<ui:define name="display">
+				<h1>Criar novo produto</h1>
+				<h:form >
+					<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid">
+						<h:outputLabel value= "Id do Produto "/>
+						<h:outputText value="#{productBean.product.discount}" />
+					
+						<h:outputLabel value="Desconto " />
+						<p:spinner value="#{productBean.product.discount}" suffix="€" min="0" />
+						
+						<h:outputLabel value="Iva " />
+						<p:spinner value="#{productBean.product.iva}" suffix="%" min="0" />
+					</h:panelGrid>
+					
+					<h:commandButton id="createButton" value="Submeter"  action="#{productBean.productService.create(productBean.product, 'CreateProductMenu')}" styleClass="btn btn-submit" />
+					
+					
+				</h:form>
+			
+			</ui:define>
+		
+		</ui:composition>
+	</body>
+</html>
