@@ -44,8 +44,32 @@
 					<h:commandButton value="Voltar ao menu principal" action="mainMenu" styleClass="btn btn-default" />
 				</h:form>
 			</ui:define>
+			
+			<ui:define name="display">
+				<p:dataTable var="product" value="#{productBean.productService.listProducts()}">
+				
+				<p:column headerText="Checkers">
+						<p:selectBooleanCheckbox value="{productBean.disabled}" target="#{productBean.product}" />
+					</p:column>
+					
+					<p:column headerText="Id">
+						<h:outputText value="#{product.id}" />
+					</p:column>
+					
+					<p:column headerText="Iva">
+						<h:outputText value="#{product.iva}" />
+					</p:column>
+					
+					<p:column headerText="Pvp">
+						<h:outputText value="#{product.pvp}" />
+					</p:column>
+				</p:dataTable>
+			
+			</ui:define>
 
 		</ui:composition>
 	</body>
 </html>
+
+<!-- https://stackoverflow.com/questions/2524514/how-to-use-hselectbooleancheckbox-in-hdatatable-to-select-multiple-rows -->
 		

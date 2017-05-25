@@ -1,6 +1,9 @@
 package io.altar.upacademy.Repository;
 
 import java.util.Collection;
+
+
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +15,7 @@ public class EntityRepository <E extends Entity> {
 	
 	private long index = 0;
 	
-	protected Long getNextId(){
+	public Long getNextId(){
 		return ++index;
 	}
 	
@@ -44,5 +47,21 @@ public class EntityRepository <E extends Entity> {
 	//remove
 	public void remove(Long id){
 		dataBaseMap.remove(id);
+	}
+
+	public Map<Long, E> getDataBaseMap() {
+		return dataBaseMap;
+	}
+
+	public void setDataBaseMap(Map<Long, E> dataBaseMap) {
+		this.dataBaseMap = dataBaseMap;
+	}
+
+	public long getIndex() {
+		return index;
+	}
+
+	public void setIndex(long index) {
+		this.index = index;
 	}
 }

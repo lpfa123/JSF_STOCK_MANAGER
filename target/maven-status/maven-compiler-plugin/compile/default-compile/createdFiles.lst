@@ -1,7 +1,7 @@
-io\altar\upacademy\model\Product.class
-io\altar\upacademy\Repository\EntityRepository.class
-io\altar\upacademy\model\Shelf.class
-io\altar\upacademy\Service\ProductService.class
-io\altar\upacademy\model\Entity.class
-io\altar\upacademy\Repository\ProductRepository.class
-io\altar\upacademy\view\ProductBean.class
+io/altar/upacademy/model/Entity.class
+io/altar/upacademy/Repository/EntityRepository.class
+io/altar/upacademy/Repository/ProductRepository.class
+io/altar/upacademy/model/Product.class
+io/altar/upacademy/Service/ProductService.class
+io/altar/upacademy/view/ProductBean.class
+io/altar/upacademy/model/Shelf.class

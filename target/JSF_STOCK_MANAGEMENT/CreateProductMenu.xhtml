@@ -11,9 +11,9 @@
 		<ui:composition template="templates/default/Layout.xhtml">
 		
 		<!-- butao voltar ao menu anterior -->
-		<ui:define name="button5">
+		<ui:define name="button1">
 			<h:form>
-				<h:commandButoon id="button5" value="Voltar" action="ProductMenu" />
+				<h:commandButton id="button1" value="Voltar" action="ProductMenu" />
 			</h:form>
 		</ui:define>
 		<!--  Conteudo -->
@@ -31,7 +31,7 @@
 						<p:spinner value="#{productBean.product.iva}" suffix="%" min="0" />
 					</h:panelGrid>
 					
-					<h:commandButton id="createButton" value="Submeter"  action="#{productBean.productService.create(productBean.product, 'CreateProductMenu')}" styleClass="btn btn-submit" />
+					<h:commandButton id="createButton" value="Submeter"  action="#{productBean.productService.create(productBean.product, 'CreateProductMenu')}" />
 					
 					
 				</h:form>

@@ -29,5 +29,11 @@ public class ProductService  {
 		ProductRepository.getInstance().create(product);
 		return nextScreen;
 	}
+	
+	public String editProduct(Product product, String nextScreen){
+		ProductRepository.getInstance().edit(product);
+		return nextScreen;
+	}
 
+	
 }

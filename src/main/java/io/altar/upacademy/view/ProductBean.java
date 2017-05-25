@@ -14,7 +14,7 @@ public class ProductBean {
 	
 	private Product product = new Product();
 	
-	private boolean disable = true;
+	private boolean disable;
 	
 	@Inject
 	private ProductService productService;
@@ -27,20 +27,20 @@ public class ProductBean {
 		this.product = product;
 	}
 
-	public boolean isDisable() {
-		return disable;
-	}
-
-	public void setDisable(boolean disable) {
-		this.disable = disable;
-	}
-
 	public ProductService getProductService() {
 		return productService;
 	}
 
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
+	}
+
+	public boolean isDisable() {
+		return disable;
+	}
+
+	public void setDisable(boolean disable) {
+		this.disable = disable;
 	}
 	
 }
