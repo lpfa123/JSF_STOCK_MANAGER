@@ -13,13 +13,12 @@ import io.altar.upacademy.model.Entity;
 public class EntityRepository <E extends Entity> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private LinkedHashMap<Long, E> dataBaseMap = new LinkedHashMap<>();
-	
 	private long index = 0;
 	
+	private LinkedHashMap<Long, E> dataBaseMap = new LinkedHashMap<>();
 	private List<E> listShow = new ArrayList<>();
 	private List<E> listEdit = new ArrayList<>();
-	private List<E> selectedProduct = new ArrayList<>();
+	private List<E> selectedProduct;
 	
 
 	public Long getNextId(){
@@ -62,6 +61,7 @@ public class EntityRepository <E extends Entity> implements Serializable {
 	}
 	
 	// utpdate da lista 
+	@SuppressWarnings("unchecked")
 	public void updateLists(){
 		List<E> newList = new ArrayList<>();
 		for (int i =0; i < dataBaseMap.size(); i++){
@@ -111,4 +111,6 @@ public class EntityRepository <E extends Entity> implements Serializable {
 	public void setSelectedProduct(List<E> selectedProduct) {
 		this.selectedProduct = selectedProduct;
 	}
+
+
 }

@@ -12,7 +12,7 @@ import javax.inject.Named;
 import io.altar.upacademy.Service.ProductService;
 import io.altar.upacademy.model.Product;
 
-@ManagedBean(name="productBean", eager=true)	
+@Named("productBean")	
 @RequestScoped
 
 public class ProductBean implements Serializable {

@@ -11,16 +11,27 @@
 		<ui:composition template="templates/default/Layout.xhtml">
 		
 			<!-- back to main -->
-			<ui:define name="button5">
+			
+				<ui:define name="button3">
 				<h:form>
 					<h:commandButton value="Voltar ao menu principal" action="mainMenu" styleClass="btn btn-default" />
+				</h:form>
+			</ui:define>
+			
+			<ui:define name="button1">
+				<h:form>
+					<h:commandButton value="Remover produto selecionado"
+					 action="#{productService.removeProductList(productService.productRepository.selectedProduct, 'ProductMenu')}"
+					 styleClass="btn btn-default" />
 				</h:form>
 			</ui:define>
 			
 			<ui:define name="display">
 			<h1>Remover Produto</h1>
 				<h:form>
-					<p:dataTable id="cehckBoxDT" var="product" value="#{productService.productRepository.listEdit}" selection="#{productService.productRepository.selectedProduct}">
+					<p:dataTable id="cehckBoxDT" var="product" value="#{productService.productRepository.listEdit}" selection="#{productService.productRepository.selectedProduct}" rowKey="#{product.id}" editable="true" editmode="cell">
+						
+						<p:column selectionMode="multiple" style="width:60px;" />
 						
 						<p:column headerText="Id">
 							<h:outputText value="#{product.id}" />
@@ -38,10 +49,7 @@
 							<h:outputText value="#{product.pvp}" />
 						</p:column>
 						
-						<p:column headerText="options">
-							<h:commandLink actionListner="#{productService.removeProductList(productService.productRepository.selectedProduct, 'productMenu')}" value="Remover" />
-						
-						</p:column>
+			
 							
 					</p:dataTable>
 				</h:form>

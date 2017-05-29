@@ -47,7 +47,7 @@
 			
 			<ui:define name="display">
 				<h:form>
-					<p:dataTable var="product" value="#{productBean.productService.listProducts()}">
+					<p:dataTable var="product" value="#{productBean.productService.productRepository.listEdit}">
 						
 						<p:column headerText="Id">
 							<h:outputText value="#{product.id}" />

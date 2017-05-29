@@ -20,13 +20,7 @@ public class ProductService implements Serializable {
 
 	public ProductService(){};
 	
-	public static List <Product> listProducts(){
-		List<Product> productList = new ArrayList<>();
-		for(long i = 1; i <= ProductRepository.getInstance().dataBase().size(); i++){
-			productList.add(ProductRepository.getInstance().dataBaseFromId(i));
-		}
-		return productList;
-	}
+
 	
 	public String createProductId(Product product, String nextScreen){
 		productRepository.create(product);
