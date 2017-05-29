@@ -10,34 +10,6 @@
 	<body>
 		<ui:composition template="templates/default/Layout.xhtml">
 		
-		<!--  Create Columns with products -->
-			<ui:define name="button1">
-				<h:form>
-					<h:commandButton value="Criar Produto" action="CreateProductMenu" styleClass="btn btn-default" />
-				</h:form>
-			</ui:define>
-			
-			<!--  Edit Product -->
-			<ui:define name="button2">
-				<h:form>
-					<h:commandButton value="Editar Produto" action="EditProductMenu" styleClass="btn btn-default" />
-				</h:form>
-			</ui:define>
-			
-			<!-- Show Product -->
-			<ui:define name="button3">
-				<h:form>
-					<h:commandButton value="Detallhes Produto" action="ShowProductMenu" styleClass="btn btn-default" />
-				</h:form>
-			</ui:define>
-		
-		<!-- Remove Product -->
-			<ui:define name="button4">
-				<h:form>
-					<h:commandButton value="Remover Produto" action="RemoveProduct" styleClass="btn btn-default" />
-				</h:form>
-			</ui:define>
-			
 			<!-- back to main -->
 			<ui:define name="button5">
 				<h:form>
@@ -46,6 +18,7 @@
 			</ui:define>
 			
 			<ui:define name="display">
+			<h1>Remover Produto</h1>
 				<h:form>
 					<p:dataTable var="product" value="#{productBean.productService.listProducts()}">
 						
@@ -66,7 +39,7 @@
 						</p:column>
 						
 						<p:column headerText="options">
-							<h:commandLink actionListner="#{productBean.productService.removeProductId(id)}" value="Remover" />
+							<h:commandLink action="#{productBean.productService.removeProdutList(productList)}" value="Remover" />
 						
 						</p:column>
 							

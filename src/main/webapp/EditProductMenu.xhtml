@@ -18,27 +18,57 @@
 		</ui:define>
 		<!--  Conteudo -->
 			<ui:define name="display">
-				<h1>Criar novo produto</h1>
+				<h1>Editar Produto</h1>
 				<h:form >
-					<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid">
-						<h:outputLabel value= "Id do Produto "/>
-						<h:outputText value="#{adsd}" />
-					
-						<h:outputLabel value="Desconto " />
-						<p:spinner value="#{productBean.product.discount}" suffix="%" min="0" />
+					<p:dataTable var="product" value="#{productService.productRepository.listEdit}" editable="true">
+						<f:facet name="header">
+							Editar Produto
+						</f:facet>
+						<p:column headerText="Id">
+							<h:outputText value="#{product.id}" />
+						</p:column>
+						<!-- Desconto -->
+						<p:column headerText = "Desconto" filterBy="#{prouct.discount}" sortBy="#{product.discount}" filterMatchMode="startsWith">
+								
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{product.discount}"/>
+							</f:facet>
+							<f:facet name = "input">
+								<p:inputText id= "modelInput" value = "#{product.discount}" style="width:96%" />
+							</f:facet>
+						</p:cellEditor>
+						</p:column>
 						
-						<h:outputLabel value="Iva " />
-						<p:spinner value="#{productBean.product.iva}" suffix="%" min="0" />
-						
-						<h:outputLabel value="Pvp " />
-						<p:spinner value="#{productBean.product.pvp}" suffix="€" min="0" />
-					</h:panelGrid>
-					
-					<h:commandButton id="createButton" class="submit_btn" value="Submeter"  action="#{productBean.productService.editProduct(productBean.product, 'ProductMenu')}" />
-					
-					
+						<!-- editar iva -->
+						<p:column headerText = "Iva" filterBy="#{prouct.iva}" sortBy="#{product.iva}" filterMatchMode="startsWith">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{product.iva}"/>
+							</f:facet>
+							<f:facet name = "input">
+								<p:inputText value ="#{product.iva}" style="width:96%"/>
+							</f:facet>
+						</p:cellEditor>
+						</p:column>
+						<!-- editar pvp -->
+						<p:column headerText = "Pvp" filterBy="#{prouct.pvp}" sortBy="#{product.pvp}" filterMatchMode="startsWith">
+
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{product.pvp}"/>
+							</f:facet>
+							<f:facet name = "input">
+								<p:inputText value ="#{product.pvp}" />
+							</f:facet>
+						</p:cellEditor>
+						</p:column>
+						<!--icones laterais -->
+						<p:column style="width:6%" exportable="false">
+							<p:rowEditor />
+						</p:column>
+					</p:dataTable>
 				</h:form>
-			
 			</ui:define>
 		
 		</ui:composition>

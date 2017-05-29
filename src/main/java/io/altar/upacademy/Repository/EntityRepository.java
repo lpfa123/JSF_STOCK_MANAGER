@@ -20,8 +20,7 @@ public class EntityRepository <E extends Entity> implements Serializable {
 	private List<E> listShow = new ArrayList<>();
 	private List<E> listEdit = new ArrayList<>();
 	
-	
-	
+
 	public Long getNextId(){
 		return ++index;
 	}
@@ -37,10 +36,8 @@ public class EntityRepository <E extends Entity> implements Serializable {
 	}
 	
 	// editar
-	public void edit(E entity){
-		Long id = entity.getId();
-		
-		dataBaseMap.put(id, entity);
+	public void edit(E entity){	
+		dataBaseMap.put(entity.getId(), entity);
 	}
 	
 	//read 

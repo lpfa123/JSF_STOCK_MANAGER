@@ -2,9 +2,7 @@ package io.altar.upacademy.Service;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
 import java.util.List;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -30,23 +28,29 @@ public class ProductService implements Serializable {
 		return productList;
 	}
 	
-	
-	
 	public String createProductId(Product product, String nextScreen){
-		ProductRepository.getInstance().create(product);
+		productRepository.create(product);
+		productRepository.edit(product);
+		productRepository.updateLists();
 		return nextScreen;
 	}
-	
 
-	public String removeProductList(List<Product> productList, String nextPage){
+	public String removeProductList(List <Product> productList, String nextPage){
 		productRepository.removeList(productList);
 		productRepository.updateLists();
 		return nextPage;
 		
+	}
+
+	public ProductRepository getProductRepository() {
+		return productRepository;
+	}
+
+	public void setProductRepository(ProductRepository productRepository) {
+		this.productRepository = productRepository;
 	}	
 		
 	
-		
 
 	
 }

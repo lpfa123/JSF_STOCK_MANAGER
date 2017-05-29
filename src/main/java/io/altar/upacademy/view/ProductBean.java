@@ -20,7 +20,7 @@ public class ProductBean implements Serializable {
 	
 	private Product product = new Product();
 	
-	private boolean disable;
+	private boolean editable;
 	
 	public ProductBean(){};
 	
@@ -44,12 +44,14 @@ public class ProductBean implements Serializable {
 		this.productService = productService;
 	}
 
-	public boolean isDisable() {
-		return disable;
+	public boolean isEditable() {
+		return editable;
 	}
 
-	public void setDisable(boolean disable) {
-		this.disable = disable;
+	public void setEditable(boolean editable) {
+		this.editable = editable;
 	}
+
+
 	
 }

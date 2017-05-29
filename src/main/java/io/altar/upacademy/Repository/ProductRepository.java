@@ -13,7 +13,7 @@ import io.altar.upacademy.model.Product;
 public class ProductRepository extends EntityRepository<Product> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private static ProductRepository INSTANCE;
+	private static ProductRepository INSTANCE = new ProductRepository();
     
     private ProductRepository() {}
     
