@@ -28,7 +28,7 @@
 							<h:outputText value="#{product.id}" />
 						</p:column>
 						<!-- Desconto -->
-						<p:column headerText = "Desconto" filterBy="#{prouct.discount}" sortBy="#{product.discount}" filterMatchMode="startsWith">
+						<p:column headerText = "Desconto" sortBy="#{product.discount}" filterMatchMode="startsWith">
 								
 						<p:cellEditor>
 							<f:facet name="output">
@@ -41,7 +41,7 @@
 						</p:column>
 						
 						<!-- editar iva -->
-						<p:column headerText = "Iva" filterBy="#{prouct.iva}" sortBy="#{product.iva}" filterMatchMode="startsWith">
+						<p:column headerText = "Iva" sortBy="#{product.iva}" filterMatchMode="startsWith">
 						<p:cellEditor>
 							<f:facet name="output">
 								<h:outputText value="#{product.iva}"/>
@@ -52,7 +52,7 @@
 						</p:cellEditor>
 						</p:column>
 						<!-- editar pvp -->
-						<p:column headerText = "Pvp" filterBy="#{prouct.pvp}" sortBy="#{product.pvp}" filterMatchMode="startsWith">
+						<p:column headerText = "Pvp" sortBy="#{product.pvp}" filterMatchMode="startsWith">
 
 						<p:cellEditor>
 							<f:facet name="output">

@@ -19,6 +19,7 @@ public class EntityRepository <E extends Entity> implements Serializable {
 	
 	private List<E> listShow = new ArrayList<>();
 	private List<E> listEdit = new ArrayList<>();
+	private List<E> selectedProduct = new ArrayList<>();
 	
 
 	public Long getNextId(){
@@ -101,5 +102,13 @@ public class EntityRepository <E extends Entity> implements Serializable {
 
 	public void setDataBaseMap(LinkedHashMap<Long, E> dataBaseMap) {
 		this.dataBaseMap = dataBaseMap;
+	}
+
+	public List<E> getSelectedProduct() {
+		return selectedProduct;
+	}
+
+	public void setSelectedProduct(List<E> selectedProduct) {
+		this.selectedProduct = selectedProduct;
 	}
 }
