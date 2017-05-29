@@ -1,20 +1,29 @@
 package io.altar.upacademy.view;
 
+
+import java.io.Serializable;
+
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 
 import io.altar.upacademy.Service.ProductService;
 import io.altar.upacademy.model.Product;
 
-@Named("productBean")
+@ManagedBean(name="productBean", eager=true)	
 @RequestScoped
 
-public class ProductBean {
+public class ProductBean implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	private Product product = new Product();
 	
 	private boolean disable;
+	
+	public ProductBean(){};
+	
 	
 	@Inject
 	private ProductService productService;

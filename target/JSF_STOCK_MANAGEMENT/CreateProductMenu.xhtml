@@ -13,7 +13,7 @@
 		<!-- butao voltar ao menu anterior -->
 		<ui:define name="button1">
 			<h:form>
-				<h:commandButton id="button1" value="Voltar" action="ProductMenu" />
+				<h:commandButton id="button1" class="btn" value="Voltar" action="ProductMenu" />
 			</h:form>
 		</ui:define>
 		<!--  Conteudo -->
@@ -22,16 +22,19 @@
 				<h:form >
 					<h:panelGrid columns="2" cellpadding="5" styleClass="ui-grid">
 						<h:outputLabel value= "Id do Produto "/>
-						<h:outputText value="#{productBean.product.discount}" />
+						<h:outputText value="#{adsd}" />
 					
 						<h:outputLabel value="Desconto " />
-						<p:spinner value="#{productBean.product.discount}" suffix="€" min="0" />
+						<p:spinner value="#{productBean.product.discount}" suffix="%" min="0" />
 						
 						<h:outputLabel value="Iva " />
 						<p:spinner value="#{productBean.product.iva}" suffix="%" min="0" />
+						
+						<h:outputLabel value="Pvp " />
+						<p:spinner value="#{productBean.product.pvp}" suffix="€" min="0" />
 					</h:panelGrid>
 					
-					<h:commandButton id="createButton" value="Submeter"  action="#{productBean.productService.create(productBean.product, 'CreateProductMenu')}" />
+					<h:commandButton id="createButton" class="submit_btn" value="Submeter"  action="#{productBean.productService.createProductId(productBean.product, 'ProductMenu')}" />
 					
 					
 				</h:form>

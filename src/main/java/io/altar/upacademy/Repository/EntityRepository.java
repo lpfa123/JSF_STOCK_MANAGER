@@ -1,19 +1,26 @@
 package io.altar.upacademy.Repository;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
-
-
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.altar.upacademy.model.Entity;
 
-public class EntityRepository <E extends Entity> {
+public class EntityRepository <E extends Entity> implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-	private Map<Long, E> dataBaseMap = new HashMap<>();
+	private LinkedHashMap<Long, E> dataBaseMap = new LinkedHashMap<>();
 	
 	private long index = 0;
+	
+	private List<E> listShow = new ArrayList<>();
+	private List<E> listEdit = new ArrayList<>();
+	
+	
 	
 	public Long getNextId(){
 		return ++index;
@@ -48,13 +55,27 @@ public class EntityRepository <E extends Entity> {
 	public void remove(Long id){
 		dataBaseMap.remove(id);
 	}
+	
+	//remove list
+	public void removeList(List<E> entityList){
+		for (int i = 0; i<entityList.size(); i++){
+			remove(entityList.get(i).getId());
+		}
+	}
+	
+	// utpdate da lista 
+	public void updateLists(){
+		List<E> newList = new ArrayList<>();
+		for (int i =0; i < dataBaseMap.size(); i++){
+			newList.add((E) dataBaseMap.values().toArray()[i]);
+		}
+		listShow = newList;
+		listEdit = newList;
+	}
+	
 
 	public Map<Long, E> getDataBaseMap() {
 		return dataBaseMap;
-	}
-
-	public void setDataBaseMap(Map<Long, E> dataBaseMap) {
-		this.dataBaseMap = dataBaseMap;
 	}
 
 	public long getIndex() {
@@ -63,5 +84,25 @@ public class EntityRepository <E extends Entity> {
 
 	public void setIndex(long index) {
 		this.index = index;
+	}
+
+	public List<E> getListShow() {
+		return listShow;
+	}
+
+	public void setListShow(List<E> listShow) {
+		this.listShow = listShow;
+	}
+
+	public List<E> getListEdit() {
+		return listEdit;
+	}
+
+	public void setListEdit(List<E> listEdit) {
+		this.listEdit = listEdit;
+	}
+
+	public void setDataBaseMap(LinkedHashMap<Long, E> dataBaseMap) {
+		this.dataBaseMap = dataBaseMap;
 	}
 }

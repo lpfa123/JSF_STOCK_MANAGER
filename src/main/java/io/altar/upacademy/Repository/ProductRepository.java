@@ -2,15 +2,18 @@ package io.altar.upacademy.Repository;
 
 import java.io.Serializable;
 
-
-
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 import io.altar.upacademy.model.Product;
 
+
+@Named("productRepository")
+@ApplicationScoped
 public class ProductRepository extends EntityRepository<Product> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private static final ProductRepository INSTANCE = new ProductRepository();
+	private static ProductRepository INSTANCE;
     
     private ProductRepository() {}
     
