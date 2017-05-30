@@ -34,7 +34,7 @@
 		<!-- Remove Product -->
 			<ui:define name="button4">
 				<h:form>
-					<h:commandButton value="Remover Produto" action="#{productBean.productService.submitRemove}" styleClass="btn btn-default" />
+					<h:commandButton value="Remover Produto" action="RemoveProduct" styleClass="btn btn-default" />
 				</h:form>
 			</ui:define>
 			
@@ -46,27 +46,28 @@
 			</ui:define>
 			
 			<ui:define name="display">
-				<p:dataTable var="product" value="#{productBean.productService.listProducts()}">
-					
-					<p:column headerText="Id">
-						<h:outputText value="#{product.id}" />
-					</p:column>
-					
-					<p:column headerText="Iva">
-						<h:outputText value="#{product.iva}" />
-					</p:column>
-					
-					<p:column headerText="Pvp">
-						<h:outputText value="#{product.pvp}" />
-					</p:column>
-					
-					<p:column headerText="options>">
-						<h:commandLink actionListener="#{productBean.productService.removeProductList(productList)}" value="Remover" />
-					
-					</p:column>
+				<h:form>
+					<p:dataTable var="product" value="#{productBean.productService.productRepository.listEdit}">
 						
-				</p:dataTable>
-			
+						<p:column headerText="Id">
+							<h:outputText value="#{product.id}" />
+						</p:column>
+						
+						<p:column headerText="Discount">
+							<h:outputText value="#{product.discount}" />
+						</p:column>
+						
+						<p:column headerText="Iva">
+							<h:outputText value="#{product.iva}" />
+						</p:column>
+						
+						<p:column headerText="Pvp">
+							<h:outputText value="#{product.pvp}" />
+						</p:column>
+						
+							
+					</p:dataTable>
+				</h:form>
 			</ui:define>
 
 		</ui:composition>
