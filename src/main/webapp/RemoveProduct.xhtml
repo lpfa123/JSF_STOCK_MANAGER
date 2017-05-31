@@ -41,15 +41,10 @@
 							<h:outputText value="#{product.pvp}" />
 						</p:column>
 						
-						<p:column headerText="Apagar">
-							<h:commandButton process="checkBoxDT" value="Remover produto selecionado"
-					 action="#{productService.removeProductList(productService.productRepository.selectedProduct, 'ProductMenu')}"
-					 styleClass="btn btn-default" />
-					 </p:column>
-	
-						
 					</p:dataTable>
-					
+						<h:commandButton value="Remover produto selecionado"
+					 action="#{productService.removeProductList(productService.productRepository.selectedProduct, 'ProductMenu')}"
+					 styleClass="btn btn-submit" />
 				</h:form>
 			</ui:define>
 

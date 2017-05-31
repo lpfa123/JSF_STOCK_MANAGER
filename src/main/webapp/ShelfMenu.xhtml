@@ -13,21 +13,22 @@
 		<!--  Create Columns with products -->
 			<ui:define name="button1">
 				<h:form>
-					<h:commandButton value="Criar Produto" action="CreateProductMenu" styleClass="btn btn-default" />
+					<h:commandButton value="Criar Prateleira" action="CreateShelfMenu" styleClass="btn btn-default" />
 				</h:form>
 			</ui:define>
 			
 			<!--  Edit Product -->
 			<ui:define name="button2">
 				<h:form>
-					<h:commandButton value="Editar Produto" action="EditProductMenu" styleClass="btn btn-default" />
+					<h:commandButton value="Editar Shelf" action="EditShelfMenu" styleClass="btn btn-default" />
 				</h:form>
 			</ui:define>
 			
+		
 		<!-- Remove Product -->
 			<ui:define name="button3">
 				<h:form>
-					<h:commandButton value="Remover Produto" action="RemoveProduct" styleClass="btn btn-default" />
+					<h:commandButton value="Remover Prateleira" action="RemoveShelfMenu" styleClass="btn btn-default" />
 				</h:form>
 			</ui:define>
 			
@@ -40,22 +41,22 @@
 			
 			<ui:define name="display">
 				<h:form>
-					<p:dataTable var="product" value="#{productBean.productService.productRepository.listEdit}">
+					<p:dataTable var="product" value="#{shelfBean.shelfService.shelfRepository.listEdit}">
 						
 						<p:column headerText="Id">
-							<h:outputText value="#{product.id}" />
+							<h:outputText value="#{shelf.id}" />
 						</p:column>
 						
-						<p:column headerText="Discount">
-							<h:outputText value="#{product.discount}" />
+						<p:column headerText="Tipo de prateleira">
+							<h:outputText value="#{shelf.location}" />
 						</p:column>
 						
-						<p:column headerText="Iva">
-							<h:outputText value="#{product.iva}" />
+						<p:column headerText="Capacidade">
+							<h:outputText value="#{shelf.capacity}" />
 						</p:column>
 						
-						<p:column headerText="Pvp">
-							<h:outputText value="#{product.pvp}" />
+						<p:column headerText="Custo do aluguer">
+							<h:outputText value="#{shelf.rent}" />
 						</p:column>
 						
 							

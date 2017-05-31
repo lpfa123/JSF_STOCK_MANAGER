@@ -3,5 +3,8 @@ io\altar\upacademy\Repository\EntityRepository.class
 io\altar\upacademy\model\Shelf.class
 io\altar\upacademy\Service\ProductService.class
 io\altar\upacademy\model\Entity.class
+io\altar\upacademy\Service\ShelfService.class
+io\altar\upacademy\Repository\ShelfRepository.class
 io\altar\upacademy\Repository\ProductRepository.class
+io\altar\upacademy\view\ShelfBean.class
 io\altar\upacademy\view\ProductBean.class

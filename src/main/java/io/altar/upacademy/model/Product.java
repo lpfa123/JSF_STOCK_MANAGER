@@ -6,6 +6,7 @@ public class Product extends Entity {
 	double iva;
 	double pvp;
 	
+	
 	public Product(){
 		
 	}

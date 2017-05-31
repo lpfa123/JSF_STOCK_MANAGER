@@ -14,9 +14,9 @@ import io.altar.upacademy.model.Product;
 @RequestScoped
 
 public class ProductService implements Serializable {
-		private static final long serialVersionUID=1L;
+	private static final long serialVersionUID=1L;
 		
-		private ProductRepository productRepository = ProductRepository.getInstance();
+	private ProductRepository productRepository = ProductRepository.getInstance();
 
 	public ProductService(){};
 	
